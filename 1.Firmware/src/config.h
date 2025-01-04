@@ -1,8 +1,8 @@
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
 
-#define SCLK 12
-#define MOSI 11
+#define SCLK 11
+#define MOSI 12
 #define TFT_CS 10
 #define TFT_BLK 13
 #define TFT_DC 14
@@ -30,7 +30,7 @@
 #define MQTT_HOST               "dingmos"  
 
 
-#define LCD_BK_DEFAULT_BRIGHTNESS  50
+#define LCD_BK_DEFAULT_BRIGHTNESS  20
 #define LCD_BK_DEFAULT_TIMEOUT     5
 
 
