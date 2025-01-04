@@ -126,10 +126,10 @@ void Playground::Update()
 {
 	PlaygroundInfo info;
 	Model->GetKnobStatus(&info);
-	if (info.konb_direction != SUPER_DIAL_NULL) {
+	if (info.knob_direction != SUPER_DIAL_NULL) {
 		switch(app) {
 			case APP_MODE_SUPER_DIAL:
-				HAL::surface_dial_update(info.konb_direction);
+				HAL::surface_dial_update(info.knob_direction);
 				break;
 		}
 	}

@@ -1,7 +1,4 @@
-#include <Arduino.h>
 #include <lvgl.h>
-#include <Wire.h>
-#include <SPI.h>
 #include "port/display.h"
 #include "config.h"
 
@@ -12,8 +9,6 @@ static lv_disp_draw_buf_t draw_buf;
 lv_color_t *disp_draw_buf;
 static lv_disp_drv_t disp_drv;
 uint8_t lv_page = 0;
-
-
 
 static void disp_flush_cb(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p) {
     uint32_t w = (area->x2 - area->x1 + 1);

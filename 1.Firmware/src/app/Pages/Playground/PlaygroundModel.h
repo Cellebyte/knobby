@@ -9,7 +9,7 @@ typedef struct
     int32_t xkonb_value;
     int32_t motor_pos;
     int32_t angle_offset;
-    SuperDialMotion konb_direction;
+    SuperDialMotion knob_direction;
 } PlaygroundInfo;
 namespace Page
 {

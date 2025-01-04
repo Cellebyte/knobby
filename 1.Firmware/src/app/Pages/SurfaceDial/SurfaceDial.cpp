@@ -102,6 +102,6 @@ void SurfaceDial::Update()
 {
 	SurfaceDialInfo info;
 	Model->GetKnobStatus(&info);
-	HAL::surface_dial_update(info.konb_direction);
+	HAL::surface_dial_update(info.knob_direction);
 	View->UpdateView(&info);
 }

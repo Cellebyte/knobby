@@ -85,7 +85,7 @@ void Setting::Update()
 {
     SettingInfo info;
     Model->GetKnobStatus(&info);
-    if (info.konb_direction != SUPER_DIAL_NULL){
+    if (info.knob_direction != SUPER_DIAL_NULL){
         char* name = ((SettingView*)View)->GetEditedSettingName();
     }
     View->UpdateView(&info);

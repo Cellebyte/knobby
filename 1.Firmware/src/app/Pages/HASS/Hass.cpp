@@ -118,10 +118,10 @@ void Hass::Update()
 {
 	HassInfo info;
 	Model->GetKnobStatus(&info);
-	if (info.konb_direction != SUPER_DIAL_NULL) {
+	if (info.knob_direction != SUPER_DIAL_NULL) {
 		char* name = ((HassView*)View)->GetEditedDeviceName();
 		if (name != NULL) {
-			hass_hal_send(name, info.konb_direction);
+			hass_hal_send(name, info.knob_direction);
 		}
 	}
 	View->UpdateView(&info);

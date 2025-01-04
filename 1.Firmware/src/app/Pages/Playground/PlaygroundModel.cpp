@@ -9,7 +9,7 @@ using namespace Page;
 
 bool is_outbound = false;
 int32_t arc_offset = 0;   // 超出界限时显示的 arch 长度
-SuperDialMotion konb_direction = SUPER_DIAL_NULL;
+SuperDialMotion knob_direction = SUPER_DIAL_NULL;
 int now_pos = 0;
 int last_pos = 0;
 int PlaygroundModel::MAX_VALUE = 100;
@@ -21,8 +21,8 @@ void PlaygroundModel::GetKnobStatus(PlaygroundInfo *info)
     info->xkonb_value = knob_value;
     info->motor_pos = now_pos;
     info->angle_offset = arc_offset;
-    info->konb_direction = konb_direction;
-    konb_direction = SUPER_DIAL_NULL;
+    info->knob_direction = knob_direction;
+    knob_direction = SUPER_DIAL_NULL;
 }
 
 void PlaygroundModel::SetPlaygroundMode(int16_t mode)
@@ -95,7 +95,7 @@ int onEvent(Account* account, Account::EventParam_t* param)
     
     now_pos = info->position;
     is_outbound = info->is_outbound;
-    konb_direction = SUPER_DIAL_NULL;
+    knob_direction = SUPER_DIAL_NULL;
     if (is_outbound) {
         arc_offset = (int)(info->angle_offset);
     } else {
@@ -106,7 +106,7 @@ int onEvent(Account* account, Account::EventParam_t* param)
     if (now_pos > last_pos)
     {
         PlaygroundModel::knob_value++;
-        konb_direction = SUPER_DIAL_RIGHT;
+        knob_direction = SUPER_DIAL_RIGHT;
         if (PlaygroundModel::knob_value > PlaygroundModel::MAX_VALUE) {
             PlaygroundModel::knob_value = PlaygroundModel::MAX_VALUE;
         }
@@ -115,7 +115,7 @@ int onEvent(Account* account, Account::EventParam_t* param)
     else if (now_pos < last_pos)
     {
         PlaygroundModel::knob_value--;
-        konb_direction = SUPER_DIAL_LEFT;
+        knob_direction = SUPER_DIAL_LEFT;
         if (PlaygroundModel::knob_value < PlaygroundModel::MIN_VALUE) {
             PlaygroundModel::knob_value = PlaygroundModel::MIN_VALUE;
         }

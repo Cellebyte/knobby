@@ -2,7 +2,6 @@
 #include "hal.h"
 #include <Arduino.h>
 #include "config.h"
-
 static volatile int16_t EncoderDiff = 0;
 
 static ButtonEvent EncoderPush(2000);
@@ -28,7 +27,7 @@ bool HAL::encoder_is_pushed(void)
     if (digitalRead(PUSH_BUTTON_PIN) == LOW) {
         // Serial.printf("Push button Pressed\n");
         return true;
-    } 
+    }
     return false;
 }
 
@@ -43,7 +42,7 @@ static void Encoder_PushHandler(ButtonEvent* btn, int event)
     
     if (event == ButtonEvent::EVENT_PRESSED)
     {
-        Serial.printf("push is pused\n");
+        Serial.printf("button pressed\n");
         // HAL::Buzz_Tone(500, 20);
         // EncoderDiffDisable = true;
         ;
