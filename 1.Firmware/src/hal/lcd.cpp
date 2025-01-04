@@ -16,8 +16,9 @@ void TaskLcdBrightnessUpdate(void *pvParameters)
 {
     bool lcd_brightness_on = true;
     int set_timeout = get_lcd_bk_timeout() * (1000 / LCD_BRIGHTNESS_TASK_PERIOD) * 60;
+    static int x, y = 0;
     while(1) {
-        bool now_btn_status = HAL::encoder_is_pushed();
+        bool now_btn_status = HAL::encoder_is_pushed(&x, &y);
         if (now_btn_status == false && last_btn_status == false && 
                     last_motor_position == now_motor_position) {
             if (set_timeout != 0) {           // 开启了背光功能

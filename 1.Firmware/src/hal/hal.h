@@ -26,13 +26,16 @@ namespace HAL
 
     void knob_init();
     void knob_update(void);
-    bool encoder_is_pushed(void);
+    bool encoder_is_pushed(int *x, int *y);
 
     void motor_init(void);
     // void TaskMotorUpdate(void *pvParameters);
     int get_motor_position(void);
     void update_motor_mode(int mode, int init_position);
     void motor_shake(int strength, int delay_time);
+
+    void touch_init(void);
+    bool touch_read(int *x, int *y);
 
     void surface_dial_init(void);
     void surface_dial_update(SuperDialMotion direction);

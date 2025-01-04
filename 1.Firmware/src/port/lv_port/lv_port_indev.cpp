@@ -71,6 +71,8 @@ static void encoder_read(lv_indev_drv_t * indev_drv, lv_indev_data_t * data)
     // data->state =  HAL::Encoder_GetIsPush() ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
     static int now_num = 0;
     static int old_num = 0;
+    static int x = 0;
+    static int y = 0;
     now_num = HAL::get_motor_position();
 
     data->enc_diff = 0;
@@ -85,5 +87,7 @@ static void encoder_read(lv_indev_drv_t * indev_drv, lv_indev_data_t * data)
 
     }
 
-    data->state =  HAL::encoder_is_pushed() ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
+    data->state =  HAL::encoder_is_pushed(&x, &y) ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
+    data->point.x = x;
+    data->point.y = y;
 }
